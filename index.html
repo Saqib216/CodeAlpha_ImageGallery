@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="nav">
+                <div class="logo">
+                    <i class="fa-solid fa-images"></i>
+                    <span>Image Gallery</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Beautiful Moments</h1>
+            <p>A curated collection of high-quality photographs</p>
+        </div>
+    </section>
+
+    <section class="filters">
+        <div class="container">
+            <div class="filter-controls">
+                <div class="search-box">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Search Photos...">
+                </div>
+
+                <div class="filter-buttons" id="filter-buttons">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <div class="container">
+            <div class="gallery-grid" id="gallery-grid">
+
+            </div>
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="close-btn" id="close-lightbox">
+                <i class="fa-solid fa-times"></i>
+            </button>
+
+            <div class="image-counter">
+                <span id="current-index">1</span> / <span id="total-images">12</span>
+            </div>
+
+            <div class="lightbox-image-container">
+                <img alt="" id="lightbox-image">
+
+                <div class="image-info">
+                    <h3 id="lightbox-title"></h3>
+                    <span id="lightbox-category" class="category-tag"></span>
+                </div>
+            </div>
+
+            <div class="lightbox-nav">
+                <button id="prev-btn">
+                    <i class="fa-solid fa-chevron-left"></i>
+                    <span>Previous</span>
+                </button>
+                <button id="next-btn">
+                    <span>Next</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <button class="download-btn" id="download-btn">
+                <i class="fa-solid fa-download"></i>
+                <span>Download</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
