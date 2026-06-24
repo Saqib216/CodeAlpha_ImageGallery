@@ -346,3 +346,54 @@ header {
 .download-btn:hover {
     opacity: 0.85;
 }
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .filter-controls {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lightbox-content {
+        width: 95vw;
+    }
+
+    #lightbox-image {
+        max-height: 50vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lightbox-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .lightbox-nav button {
+        justify-content: center;
+    }
+
+    .download-btn {
+        justify-content: center;
+        width: 100%;
+    }
+}
