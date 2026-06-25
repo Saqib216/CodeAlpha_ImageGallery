@@ -88,6 +88,8 @@ let images = [
 const galleryGrid = document.getElementById('gallery-grid');
 const filterButtons = document.getElementById('filter-buttons');
 
+const searchInput = document.getElementById('search-input');
+
 const renderGallery = (filteredImages) => {
     galleryGrid.innerHTML = "";
     filteredImages.forEach(image => {
@@ -122,8 +124,42 @@ const renderFilters = () => {
 
         filterButtons.append(btn);
     });
-
 }
 
-renderFilters();
-renderGallery(images);
+const filterAndSearch = () => {
+    const allBtns = filterButtons.querySelectorAll(".filter-btn");
+    const activeBtn = document.querySelector(".filter-btn.active");
+    const activeBtnCategory = activeBtn.dataset.category;
+
+    console.log(activeBtnCategory);
+    let searchVal = searchInput.value.toLowerCase();
+
+    let filteredImages = images.filter((image, idx) => {
+        return (activeBtnCategory === "All" || image.category === activeBtnCategory) && image.title.toLowerCase().includes(searchVal);
+    });
+    
+    renderGallery(filteredImages);
+}
+
+function main() {
+    renderFilters();
+    renderGallery(images);
+
+    filterButtons.addEventListener("click", (e) => {
+        const allBtns = filterButtons.querySelectorAll(".filter-btn");
+
+        allBtns.forEach((btn) => {
+            btn.classList.remove("active");
+        });
+        if (e.target.classList.contains("filter-btn")) {
+            e.target.classList.add("active");
+            filterAndSearch();
+        }
+    });
+
+    searchInput.addEventListener("input", (e) => {
+        filterAndSearch();
+    });
+}
+
+main();
