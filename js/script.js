@@ -87,8 +87,21 @@ let images = [
 
 const galleryGrid = document.getElementById('gallery-grid');
 const filterButtons = document.getElementById('filter-buttons');
-
 const searchInput = document.getElementById('search-input');
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightbox-image");
+const lightboxTitle = document.getElementById("lightbox-title");
+const lightboxCategory = document.getElementById("lightbox-category");
+const currentIndexEl = document.getElementById("current-index");
+const totalImagesEl = document.getElementById("total-images");
+const closeBtn = document.getElementById("close-lightbox");
+const prevBtn = document.getElementById("prev-btn");
+const nextBtn = document.getElementById("next-btn");
+const downloadBtn = document.getElementById("download-btn");
+
+let currentIndex = 0;
+let activeImages = [];
 
 const renderGallery = (filteredImages) => {
     galleryGrid.innerHTML = "";
@@ -104,6 +117,13 @@ const renderGallery = (filteredImages) => {
             </div>
         `;
         galleryGrid.appendChild(div.firstElementChild);
+    });
+
+    // Adding a click event listener to each card for opening the lightbox
+    galleryGrid.childNodes.forEach((card, idx) => {
+        card.addEventListener("click", (e) => {
+            openLightbox(idx);
+        });
     });
 }
 
@@ -137,14 +157,41 @@ const filterAndSearch = () => {
     let filteredImages = images.filter((image, idx) => {
         return (activeBtnCategory === "All" || image.category === activeBtnCategory) && image.title.toLowerCase().includes(searchVal);
     });
-    
     renderGallery(filteredImages);
+    activeImages = filteredImages;
+}
+
+const openLightbox = (index) => {
+    currentIndex = index;
+    activeImages = images;
+    updateLightbox();
+    lightbox.classList.add("active");
+}
+
+const updateLightbox = () => {
+    lightboxImage.src = activeImages[currentIndex].src;
+    lightboxTitle.textContent = activeImages[currentIndex].title;
+    lightboxCategory.textContent = activeImages[currentIndex].category;
+
+    currentIndexEl.textContent = currentIndex + 1;
+    totalImagesEl.textContent = activeImages.length;
+}
+
+const closeLightbox = () => {
+    lightbox.classList.remove("active");
+    lightboxImage.src = "";
+}
+
+const navigateLightbox = (direction) => {
+    currentIndex = (currentIndex + direction + activeImages.length) % activeImages.length;
+    updateLightbox();
 }
 
 function main() {
     renderFilters();
     renderGallery(images);
 
+    // Adding a click event listener to filter buttons
     filterButtons.addEventListener("click", (e) => {
         const allBtns = filterButtons.querySelectorAll(".filter-btn");
 
@@ -157,8 +204,32 @@ function main() {
         }
     });
 
+    // Adding an input event listener to searchBox
     searchInput.addEventListener("input", (e) => {
         filterAndSearch();
+    });
+
+    closeBtn.addEventListener("click", closeLightbox);
+    prevBtn.addEventListener("click", (e) => {
+        navigateLightbox(-1);
+    });
+    nextBtn.addEventListener("click", (e) => {
+        navigateLightbox(1);
+    });
+
+    // Keyboard Support
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            closeLightbox();
+        }
+
+        if (e.key === "ArrowLeft") {
+            navigateLightbox(-1);
+        }
+
+        if (e.key === "ArrowRight") {
+            navigateLightbox(1);
+        }
     });
 }
 
