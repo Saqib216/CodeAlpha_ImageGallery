@@ -154,11 +154,6 @@ header {
     transition: var(--transition);
 }
 
-.filter-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-}
-
 .filter-btn.active {
     background-color: var(--accent);
     border-color: var(--accent);
@@ -219,14 +214,6 @@ header {
     letter-spacing: 0.05em;
 }
 
-.gallery-card:hover img {
-    transform: scale(1.06);
-}
-
-.gallery.card:hover .card-overlay {
-    opacity: 1;
-}
-
 .lightbox {
     position: fixed;
     inset: 0;
@@ -273,10 +260,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.close-btn:hover {
-    color: var(--text-primary);
 }
 
 .image-counter {
@@ -341,11 +324,6 @@ header {
     transition: var(--transition);
 }
 
-.lightbox-nav button:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-}
-
 .download-btn {
     display: flex;
     align-items: center;
@@ -360,10 +338,6 @@ header {
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
-}
-
-.download-btn:hover {
-    opacity: 0.85;
 }
 
 @media (max-width: 768px) {
@@ -414,6 +388,34 @@ header {
     .download-btn {
         justify-content: center;
         width: 100%;
+    }
+}
+
+@media (hover: hover) {
+    .filter-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+
+    .gallery-card:hover img {
+        transform: scale(1.06);
+    }
+
+    .gallery.card:hover .card-overlay {
+        opacity: 1;
+    }
+
+    .close-btn:hover {
+        color: var(--text-primary);
+    }
+
+    .lightbox-nav button:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+
+    .download-btn:hover {
+        opacity: 0.85;
     }
 }
 
