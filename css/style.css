@@ -80,7 +80,7 @@ header {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 16px;
-    background: linear-gradient(135deg, #ffffff, var(--accent));
+    background: linear-gradient(135deg, #ff3a3a, #0052ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -249,15 +249,22 @@ header {
 }
 
 .close-btn {
-    position: absolute;
-    top: -40px;
-    right: 0;
-    background: none;
-    border: none;
     color: var(--text-secondary);
     font-size: 1.4rem;
     cursor: pointer;
     transition: var(--transition);
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    z-index: 1001;
+    background-color: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .close-btn:hover {
@@ -279,8 +286,8 @@ header {
 
 #lightbox-image {
     width: 100%;
-    max-height: 65vh;
-    object-fit: contain;
+    max-height: 70vh;
+    object-fit: cover;
     display: block;
 }
 
