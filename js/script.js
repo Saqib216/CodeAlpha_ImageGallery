@@ -98,7 +98,7 @@ const totalImagesEl = document.getElementById("total-images");
 const closeBtn = document.getElementById("close-lightbox");
 const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
-const downloadBtn = document.getElementById("download-btn");
+const openFullImageBtn = document.getElementById("download-btn");
 
 let currentIndex = 0;
 let activeImages = [];
@@ -209,6 +209,8 @@ function main() {
         filterAndSearch();
     });
 
+
+    // Adding click event listeners to close, prev and next buttons:
     closeBtn.addEventListener("click", closeLightbox);
     prevBtn.addEventListener("click", (e) => {
         navigateLightbox(-1);
@@ -230,6 +232,11 @@ function main() {
         if (e.key === "ArrowRight") {
             navigateLightbox(1);
         }
+    });
+
+    // Event listener for Open Full Image button
+    openFullImageBtn.addEventListener("click", (e) => {
+        window.open(activeImages[currentIndex].src, "_blank");
     });
 }
 
