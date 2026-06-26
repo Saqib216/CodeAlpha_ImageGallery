@@ -419,6 +419,36 @@ header {
     }
 }
 
+/* For mobile devices */
+
+@media (hover: none) {
+    .filter-btn:active {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+
+    .gallery-card:active img {
+        transform: scale(1.03);
+    }
+
+    .gallery-card:active .card-overlay {
+        opacity: 1;
+    }
+
+    .close-btn:active {
+        color: var(--text-primary);
+    }
+
+    .lightbox-nav button:active {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+
+    .download-btn:active {
+        opacity: 0.85;
+    }
+}
+
 ::-webkit-scrollbar {
     width: 7px;
 }
