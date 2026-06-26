@@ -71,8 +71,16 @@ header {
     font-size: 1.4rem;
 }
 
+.nav-tag {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 14px;
+}
+
 .hero {
-    padding: 80px 0 60px;
+    padding: 50px 0 40px;
     text-align: center;
 }
 
@@ -407,4 +415,21 @@ header {
         justify-content: center;
         width: 100%;
     }
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg-elevated);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
 }
