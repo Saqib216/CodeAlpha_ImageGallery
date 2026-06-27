@@ -75,6 +75,7 @@ header {
 
 .logo span {
     transition: var(--transition);
+    letter-spacing: 1.5px;
 }
 
 .nav-tag {
@@ -99,6 +100,7 @@ header {
     -webkit-text-fill-color: transparent;
     background-clip: text; */
     color: var(--text-primary);
+    letter-spacing: 1.4px;
 }
 
 .hero p {
