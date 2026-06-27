@@ -99,6 +99,7 @@ const closeBtn = document.getElementById("close-lightbox");
 const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
 const openFullImageBtn = document.getElementById("download-btn");
+const navTag = document.querySelector(".nav-tag");
 
 let currentIndex = 0;
 let activeImages = [];
@@ -122,7 +123,7 @@ const renderGallery = (filteredImages) => {
     // Adding a click event listener to each card for opening the lightbox
     galleryGrid.childNodes.forEach((card, idx) => {
         card.addEventListener("click", (e) => {
-            openLightbox(idx);
+            openLightbox(idx, filteredImages);
         });
     });
 }
@@ -159,9 +160,10 @@ const filterAndSearch = () => {
     });
     renderGallery(filteredImages);
     activeImages = filteredImages;
+    navTag.textContent = `${filteredImages.length} Photos`;
 }
 
-const openLightbox = (index) => {
+const openLightbox = (index, images) => {
     currentIndex = index;
     activeImages = images;
     updateLightbox();
