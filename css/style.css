@@ -442,6 +442,14 @@ header {
 /* For mobile devices */
 
 @media (hover: none) {
+    .logo:active i {
+        color: var(--accent);
+    }
+
+    .logo:active span {
+        color: var(--accent);
+    }
+
     .filter-btn:active {
         border-color: var(--accent);
         color: var(--accent);
