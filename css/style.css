@@ -88,7 +88,7 @@ header {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 16px;
-    background: linear-gradient(135deg, #ff3a3a, #0052ff);
+    background: linear-gradient(135deg, #7a7a7a 30%, #6d58ab 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -446,6 +446,23 @@ header {
 
     .download-btn:active {
         opacity: 0.85;
+    }
+}
+
+/* typewriter cursor animation */
+.cursor {
+    color: var(--accent);
+    -webkit-text-fill-color: initial;
+    animation: blink 1s infinite step-start;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+
+    51%, 100% {
+        opacity: 0;
     }
 }
 

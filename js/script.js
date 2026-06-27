@@ -241,3 +241,26 @@ function main() {
 }
 
 main();
+
+// Typewriter script
+const words = ["Beautiful Moments", "Curated Gallery", "Captured Stories"];
+let wordIdx = 0, charIdx = 0, isDeleting = false;
+const typeTarget = document.getElementById("typewriter");
+
+function type() {
+    const currentWord = words[wordIdx];
+    typeTarget.textContent = isDeleting ? currentWord.substring(0, charIdx--) : currentWord.substring(0, charIdx++);
+
+    let typeSpeed = isDeleting ? 50 : 100;
+
+    if (!isDeleting && charIdx > currentWord.length) {
+        typeSpeed = 2000;
+        isDeleting = true;
+    } else if (isDeleting && charIdx < 0) {
+        isDeleting = false;
+        wordIdx = (wordIdx + 1) % words.length;
+        typeSpeed = 500;
+    }
+    setTimeout(type, typeSpeed);
+}
+type();
